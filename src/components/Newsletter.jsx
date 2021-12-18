@@ -42,7 +42,7 @@ export const Newsletter = () => {
   return (
     <Container>
       <Title>Newsletter</Title>
-      <Desc>Get the biggest deals , directly to your mail</Desc>
+      <Desc>Get the biggest deals, directly to your mail</Desc>
       <InputContainer>
         <Input placeholder="Your email" />
         <Button>
