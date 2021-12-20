@@ -145,7 +145,6 @@ const SummaryButton = styled.button`
   padding: 10px;
   background-color: black;
   color: white;
-  font-weight: 600;
 `;
 
 export const Cart = () => {
