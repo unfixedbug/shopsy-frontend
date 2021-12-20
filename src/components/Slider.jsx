@@ -2,12 +2,16 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { useState } from "react";
+import { mobile } from "../responsive";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
+  ${mobile({
+    display: "none",
+  })}
 `;
 
 const Arrow = styled.div`
@@ -33,8 +37,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transition:all 1.5s ease;
-  transform: translate(${props=>props.slideIndex *-100}vw);
+  transition: all 1.5s ease;
+  transform: translate(${(props) => props.slideIndex * -100}vw);
 `;
 const Slide = styled.div`
   width: 100vw;
@@ -46,7 +50,7 @@ const Slide = styled.div`
 `;
 const ImgContainer = styled.div`
   height: 100%;
-  
+
   flex: 1;
 `;
 const Image = styled.img`
@@ -75,11 +79,11 @@ const Button = styled.button`
 export const Slider = () => {
   const [slideIndex, setslideIndex] = useState(0);
   const handleClick = (direction) => {
-      if(direction==="left"){
-          setslideIndex(slideIndex>0?slideIndex-1:2);
-      }else{
-            setslideIndex(slideIndex<2?slideIndex+1:0);
-      }
+    if (direction === "left") {
+      setslideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setslideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
   };
   return (
     <Container>

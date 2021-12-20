@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { mobile } from "../responsive";
 const Container = styled.div`
   flex: 1;
   margin: 3px;
@@ -11,6 +12,9 @@ const Image = styled.img`
   height: 100%;
   /* cover willl make them same size like  a poster */
   object-fit: cover;
+  ${mobile({
+    height: "20vh",
+  })}
 `;
 const Info = styled.div`
   /* if children is absolute, parent must be relative */
