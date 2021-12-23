@@ -12,6 +12,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { Success } from "./pages/Success";
 
 function App() {
   const user = true;
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/success">
+          <Success />
         </Route>
         <Route path="/login">
           {user ? <Redirect to="/" /> : <Login />}
