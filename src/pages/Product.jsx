@@ -1,13 +1,19 @@
-import { Add, Remove } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+// style imports
+import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
+import { mobile } from "../responsive";
+// components import
 import Announcement from "../components/Announcement";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Newsletter } from "../components/Newsletter";
+import { addProduct } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
-import { mobile } from "../responsive";
+
+// styled components
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
@@ -132,7 +138,8 @@ export const Product = () => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
-  const [size, setSize] = useState("")
+  const [size, setSize] = useState("");
+  const dispatch = useDispatch();
 
   // get product
   useEffect(() => {
@@ -148,15 +155,15 @@ export const Product = () => {
   // function to handle quantity of the product (click event +/-)
   const handleQuantity = (type) => {
     if (type === "dec") {
-      quantity >1 && setQuantity(quantity - 1);
+      quantity > 1 && setQuantity(quantity - 1);
     } else {
       setQuantity(quantity + 1);
     }
   };
   // function for add to cart button
-  const handleClick=()=>{
-    
-  }
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
   return (
     <Container>
       <Navbar />
@@ -173,12 +180,16 @@ export const Product = () => {
             <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color?.map((col) => (
-                <FilterColor color={col} key={col} onClick={()=>setColor(col)} />
+                <FilterColor
+                  color={col}
+                  key={col}
+                  onClick={() => setColor(col)}
+                />
               ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize onChange={(e)=>setSize(e.target.value)}>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
                 {product.size?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
