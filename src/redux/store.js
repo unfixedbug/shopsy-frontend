@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import cartReducer from "./cartRedux";
 import userReducer from "./userRedux";
 // persits imports for user storage ? catche?
@@ -21,13 +21,14 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = () =>
   configureStore({
     reducer: {
-      cart: cartReducer,
-      user: persistedReducer,
+      persistedReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
