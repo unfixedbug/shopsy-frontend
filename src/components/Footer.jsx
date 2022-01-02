@@ -1,7 +1,6 @@
 import {
   Facebook,
   Instagram,
-  Mail,
   MailOutline,
   Phone,
   Pinterest,
