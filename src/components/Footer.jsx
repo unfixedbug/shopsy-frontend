@@ -16,7 +16,6 @@ import { mobile } from "../responsive";
 // styled components ahead
 const Container = styled.div`
   display: flex;
-  padding: 20px;
   ${mobile({
     flexDirection: "column",
   })}

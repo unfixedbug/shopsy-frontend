@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   /* only 4 */
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 // take/catch the function variables {cat,fiters[size,color], sort}
@@ -65,7 +65,7 @@ export const Products = ({ cat, filter, sort }) => {
         [...prev].sort((a, b) => b.price - a.price)
       );
     }
-  }, []);
+  }, [sort]);
 
   return (
     <Container>
