@@ -130,8 +130,7 @@ const Button = styled.button`
     background-color: #f8f4f4;
   }
 `;
-
-export const Product = () => {
+const Product = () => {
   const location = useLocation(); //current path! XOXO
   // category
   const id = location.pathname.split("/")[2];
@@ -211,3 +210,5 @@ export const Product = () => {
     </Container>
   );
 };
+
+export default Product;

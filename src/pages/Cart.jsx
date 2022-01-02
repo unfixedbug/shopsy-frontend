@@ -152,8 +152,7 @@ const SummaryButton = styled.button`
   background-color: black;
   color: white;
 `;
-
-export const Cart = () => {
+const Cart = () => {
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
   const cart = useSelector((state) => state.cart);
@@ -173,8 +172,9 @@ export const Cart = () => {
         history.push("/success", { data: res.data, products: cart });
       } catch (error) {}
     };
-    stripeToken &&  makeRequest();
+    stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
+  
   return (
     <Container>
       <Navbar />
@@ -254,3 +254,5 @@ export const Cart = () => {
     </Container>
   );
 };
+
+export default Cart;

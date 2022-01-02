@@ -57,7 +57,7 @@ const Button = styled.button`
   background-color: teal;
 `;
 
-export const Register = () => {
+const Register = () => {
   return (
     <Container>
       <Wrapper>
@@ -81,3 +81,6 @@ export const Register = () => {
     </Container>
   );
 };
+
+export default Register;
+

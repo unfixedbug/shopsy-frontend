@@ -47,7 +47,7 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-export const ProductList = () => {
+const ProductList = () => {
   const location = useLocation(); //current path! XOXO
   // category
   const cat = location.pathname.split("/")[2];
@@ -107,3 +107,5 @@ export const ProductList = () => {
     </Container>
   );
 };
+
+export default ProductList;
