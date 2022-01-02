@@ -170,7 +170,7 @@ export const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
-        history.push("/success", { data: res.data });
+        history.push("/success", { data: res.data, products: cart });
       } catch (error) {}
     };
     stripeToken &&  makeRequest();

@@ -93,13 +93,12 @@ export const ProductList = () => {
           </Select>
         </Filter>
         <Filter>
-          <FilterText>
-            <Select onChange={(e) => setSort(e.target.value)}>
-              <Option value="newest">Newest</Option>
-              <Option value="asc">Price (asc)</Option>
-              <Option value="desc">Price (desc)</Option>
-            </Select>
-          </FilterText>
+          <FilterText>Sort:</FilterText>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="newest">Newest</Option>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="desc">Price (desc)</Option>
+          </Select>
         </Filter>
       </FilterContainer>
       <Products cat={cat} filter={filter} sort={sort} />

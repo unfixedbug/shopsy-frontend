@@ -87,7 +87,7 @@ export const Login = () => {
         <Title>SIgn In</Title>
         <Form>
           <Input
-            placeholder="email"
+            placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
           <Input
